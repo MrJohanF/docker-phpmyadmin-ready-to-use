@@ -1,5 +1,10 @@
+# Project Template
 
-## File Structure
+This repository provides a quick setup for a modern web application stack, integrating Next.js, React.js, Tailwind CSS, MySQL, and phpMyAdmin, all containerized using Docker.
+
+<details>
+
+<summary>File Structure</summary>
 
 - **`public/`**: Contains static files such as images and favicon.
 - **`src/`**: Contains the source code for the project.
@@ -25,3 +30,48 @@
 - **`README.md`** Project overview and instructions.
 - **`README.Docker.md`** If used, should contain Docker-specific instructions and information.
 - **`tailwind.config.js`** Configuration file for Tailwind CSS, if Tailwind is used in the project.
+
+</details>
+
+#
+
+## Setup Instructions
+
+### Clone the Repository
+
+```
+git clone https://github.com/your-repo.git
+cd your-repo
+```
+
+### Create Database Credentials
+
+Create a folder named `db/` in the root of the project. Inside this folder, create a file named `password.txt` and put your MySQL database password in it.
+
+### Configure Database 
+
+Update the `compose.yaml` file to match your database configuration. Make sure to change the database name, user, and password as needed.
+
+### Build and Start Containers
+
+```
+docker-compose up --build
+```
+
+### Grant Privileges
+
+After the containers are up, run the following command to access the MySQL container and grant privileges to the user:
+
+```
+docker-compose exec db mysql -u root -p
+```
+
+Once in the MySQL prompt, run the following SQL commands to grant privileges and flush them:
+
+```
+GRANT ALL PRIVILEGES ON *.* TO 'your_user'@'%' IDENTIFIED BY 'your_password';
+FLUSH PRIVILEGES;
+```
+
+
+
