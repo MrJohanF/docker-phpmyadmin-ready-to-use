@@ -43,7 +43,7 @@ This repository provides a quick setup for a modern web application stack, integ
 git clone https://github.com/https://github.com/MrJohanF/docker-phpmyadmin-ready-to-use.git
 ```
 ```
-cd your-repo
+cd docker-phpmyadmin-ready-to-use
 ```
 
 ### Create Database Credentials
